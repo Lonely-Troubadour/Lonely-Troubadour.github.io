@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Posts | Yongjian 的博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://Lonely-Troubadour.github.io/css/eureka.min.css">
+<script defer src="https://Lonely-Troubadour.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://Lonely-Troubadour.github.io/images/icon_hub69525c2477073a88cc622270f0a17f4_44189_32x32_fill_q75_box_center.JPG">
+<link rel="apple-touch-icon" sizes="180x180" href="https://Lonely-Troubadour.github.io/images/icon_hub69525c2477073a88cc622270f0a17f4_44189_180x180_fill_q75_box_center.JPG">
+
+<meta name="description"
+  content="Eureka is a elegant and powerful theme for Hugo.">
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[{
+            "@type":"ListItem",
+            "position":  1 ,
+            "name": "Galois Field",
+            "description": "\u003c!-- 最近在学习密码学一些相关知识，碰到了瓶颈，包括BLS短签名同态认证算法和RS编码算法。主要原因是缺少相关的密码学、数学知识，这里新开一篇博客简要做一下学习的笔记。 --\u003e\n\u003cp\u003eCurrently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.\u003c/p\u003e\n\u003ch1 id=\"abstract-algebra-basic\"\u003eAbstract Algebra Basic\u003c/h1\u003e\n\u003ch2 id=\"group-theory\"\u003eGroup Theory\u003c/h2\u003e\n\u003c!-- 群论是研究对称性的根本工具，也是密码学的基础。这里先给出群的一般定义。 --\u003e\n\u003cp\u003eGroup Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,\u003c/p\u003e\n\u003ch3 id=\"definition-and-examples\"\u003eDefinition and examples\u003c/h3\u003e\n\u003ch4 id=\"definition-11\"\u003eDEFINITION 1.1\u003c/h4\u003e\n\u003cp\u003eA \u003cem\u003egroup\u003c/em\u003e is a set $G$ together with a binary operation\n$(a,b) \\mapsto a * b:G \\times G \\rightarrow G$ satisfying the following conditions:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eG1:\u003c/strong\u003e (associativity) for all $a,b,c \\in G$,\u003c/p\u003e\n\u003cp\u003e$$(a * b) * c = a * (b * c)$$\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eG2:\u003c/strong\u003e (existence of a neutral element) there exists an element $e \\in G$ such that\u003c/p\u003e\n\u003cp\u003e$$ a * e = a = e * a $$\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eG3:\u003c/strong\u003e (existence of inverses) for each $a \\in G$, there exists an $a' \\in G$ such that\n$$a * a' = e= a' * a$$\n.\u003c/p\u003e",
+            "url": "https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "HHKB Professional BT使用体验",
+            "description": "\u003cp\u003e这篇文章完成于 2018 年 8 月 31 日，投稿于\u003ca href=\"https://sspai.com\"\u003e少数派\u003c/a\u003e,为了参加购买 HHKB 后分享使用体验活动，争取免单而作。现搬运到我的博客。\u003c/p\u003e\n\u003ch2 id=\"购买之前\"\u003e购买之前\u003c/h2\u003e\n\u003cp\u003e先简要说说，笔者在购买 \u003cstrong\u003eHHKB Professional BT\u003c/strong\u003e 之前的一些情况。笔者学生党，主力设备是 \u003cstrong\u003eMacBook Pro (15 英寸，2017)\u003c/strong\u003e ,平常自学一些 C++、PHP 等计算机专业相关的知识，自用的编辑器是 \u003ca href=\"https://www.sublimetext.com\"\u003eSublime Text\u003c/a\u003e 和 \u003ca href=\"https://code.visualstudio.com\"\u003eVisual Studio Code\u003c/a\u003e，之前从未使用过 Emacs，也基本不用 Vim。笔者之前使用过的键盘有：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e不知名品牌祖传薄膜键盘\u003c/li\u003e\n\u003cli\u003eikbc Poker  （Cherry 青轴）\u003c/li\u003e\n\u003cli\u003eLogitech K840 （Romer-G™ 机械轴）\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e这次购买 HHKB Professional BT ，是笔者第一次购买价格上千的键盘，也是笔者第一次体验静电容键盘。接下来，笔者会以一名非 Emacs/Vim 用户， Mac 使用者，入门键盘爱好者的视角，带给大家笔者个人的 HHKB Professional BT 使用体验分享。（下文将直接使用缩写 「\u003cstrong\u003eHHKB\u003c/strong\u003e」代替 「\u003cstrong\u003eHHKB Professional BT\u003c/strong\u003e」）\u003c/p\u003e",
+            "url": "https://Lonely-Troubadour.github.io/zh/posts/2018-09-01-hhkb-experience/"
+        }
+    ]
+}
+</script><meta property="og:title" content="Posts | Yongjian 的博客" />
+<meta property="og:type" content="website" />
+
+
+<meta property="og:image" content="https://Lonely-Troubadour.github.io/images/icon.JPG">
+
+
+<meta property="og:url" content="https://Lonely-Troubadour.github.io/zh/posts/" />
+
+
+
+
+
+<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo." />
+
+
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+<meta property="og:locale:alternate" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Yongjian 的博客" />
+
+
+
+
+
+
+<meta property="og:updated_time" content="2019-07-28T19:02:46&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<link rel="alternate" type="application/rss+xml" href="https://Lonely-Troubadour.github.io/zh/posts/index.xml" title="Yongjian 的博客" />
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/zh/" class="mr-6 text-primary-text text-xl font-bold">Yongjian 的博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/zh/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/zh/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/zh/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+            <div class="relative pt-4 pl-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="languageMode">
+                    <i class="fas fa-globe"></i>
+                    <span class="pl-1">简体中文</span>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open-lang">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='languageOptions'>
+                    <a class="px-4 py-1 hover:text-eureka" href="https://Lonely-Troubadour.github.io/zh/posts/">简体中文</a>
+                    <a class="px-4 py-1 hover:text-eureka" href="https://Lonely-Troubadour.github.io/en/posts/">English</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+        switchLanguage()
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<article class="mx-6 my-8">
+    <h1 class="font-bold text-3xl text-primary-text">Posts</h1>
+    
+</article>
+<div class="bg-secondary-bg rounded px-6">
+    <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/" class="font-bold text-xl hover:text-eureka">Galois Field</a>
+</div>
+<div class="content">
+  Currently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.
+Abstract Algebra Basic Group Theory Group Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,
+Definition and examples DEFINITION 1.1 A group is a set $G$ together with a binary operation $(a,b) \mapsto a * b:G \times G \rightarrow G$ satisfying the following conditions:
+G1: (associativity) for all $a,b,c \in G$,
+$$(a * b) * c = a * (b * c)$$
+G2: (existence of a neutral element) there exists an element $e \in G$ such that
+$$ a * e = a = e * a $$
+G3: (existence of inverses) for each $a \in G$, there exists an $a&#39; \in G$ such that $$a * a&#39; = e= a&#39; * a$$ .
+
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-07-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://Lonely-Troubadour.github.io/zh/categories/cryptography/" class="hover:text-eureka">Cryptography</a>
+        
+    </div>
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
+  <a href="https://Lonely-Troubadour.github.io/zh/posts/2018-09-01-hhkb-experience/" class="font-bold text-xl hover:text-eureka">HHKB Professional BT使用体验</a>
+</div>
+<div class="content">
+  这篇文章完成于 2018 年 8 月 31 日，投稿于少数派,为了参加购买 HHKB 后分享使用体验活动，争取免单而作。现搬运到我的博客。
+购买之前 先简要说说，笔者在购买 HHKB Professional BT 之前的一些情况。笔者学生党，主力设备是 MacBook Pro (15 英寸，2017) ,平常自学一些 C&#43;&#43;、PHP 等计算机专业相关的知识，自用的编辑器是 Sublime Text 和 Visual Studio Code，之前从未使用过 Emacs，也基本不用 Vim。笔者之前使用过的键盘有：
+ 不知名品牌祖传薄膜键盘 ikbc Poker （Cherry 青轴） Logitech K840 （Romer-G™ 机械轴）  这次购买 HHKB Professional BT ，是笔者第一次购买价格上千的键盘，也是笔者第一次体验静电容键盘。接下来，笔者会以一名非 Emacs/Vim 用户， Mac 使用者，入门键盘爱好者的视角，带给大家笔者个人的 HHKB Professional BT 使用体验分享。（下文将直接使用缩写 「HHKB」代替 「HHKB Professional BT」）
+
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2018-09-01</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>7分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://Lonely-Troubadour.github.io/zh/categories/experiences-hhkb/" class="hover:text-eureka">Experiences HHKB</a>
+        
+    </div>
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+</div>
+
+
+</div>
+
+
+
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Lonely-Troubadour.github.io/">Yongjian Hu</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

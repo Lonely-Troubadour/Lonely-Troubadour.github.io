@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Galois Field | Yongjian 的博客</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.0" />
+<link rel="stylesheet" href="https://Lonely-Troubadour.github.io/css/eureka.min.css">
+<script defer src="https://Lonely-Troubadour.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://Lonely-Troubadour.github.io/images/icon_hub69525c2477073a88cc622270f0a17f4_44189_32x32_fill_q75_box_center.JPG">
+<link rel="apple-touch-icon" sizes="180x180" href="https://Lonely-Troubadour.github.io/images/icon_hub69525c2477073a88cc622270f0a17f4_44189_180x180_fill_q75_box_center.JPG">
+
+<meta name="description"
+  content="
+Currently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.
+Abstract Algebra Basic
+Group Theory
+
+Group Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,
+Definition and examples
+DEFINITION 1.1
+A group is a set $G$ together with a binary operation
+$(a,b) \mapsto a * b:G \times G \rightarrow G$ satisfying the following conditions:
+G1: (associativity) for all $a,b,c \in G$,
+$$(a * b) * c = a * (b * c)$$
+G2: (existence of a neutral element) there exists an element $e \in G$ such that
+$$ a * e = a = e * a $$
+G3: (existence of inverses) for each $a \in G$, there exists an $a&#39; \in G$ such that
+$$a * a&#39; = e= a&#39; * a$$
+.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://Lonely-Troubadour.github.io/zh/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Galois Field",
+      "item":"https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/"
+    },
+    "headline": "Galois Field | Yongjian 的博客","datePublished": "2019-07-28T19:02:46+08:00",
+    "dateModified": "2019-07-28T19:02:46+08:00",
+    "wordCount":  994 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Yongjian Hu",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://Lonely-Troubadour.github.io/images/icon.JPG"
+        }
+        },
+    "description": "\u003c!-- 最近在学习密码学一些相关知识，碰到了瓶颈，包括BLS短签名同态认证算法和RS编码算法。主要原因是缺少相关的密码学、数学知识，这里新开一篇博客简要做一下学习的笔记。 --\u003e\n\u003cp\u003eCurrently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.\u003c\/p\u003e\n\u003ch1 id=\u0022abstract-algebra-basic\u0022\u003eAbstract Algebra Basic\u003c\/h1\u003e\n\u003ch2 id=\u0022group-theory\u0022\u003eGroup Theory\u003c\/h2\u003e\n\u003c!-- 群论是研究对称性的根本工具，也是密码学的基础。这里先给出群的一般定义。 --\u003e\n\u003cp\u003eGroup Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,\u003c\/p\u003e\n\u003ch3 id=\u0022definition-and-examples\u0022\u003eDefinition and examples\u003c\/h3\u003e\n\u003ch4 id=\u0022definition-11\u0022\u003eDEFINITION 1.1\u003c\/h4\u003e\n\u003cp\u003eA \u003cem\u003egroup\u003c\/em\u003e is a set $G$ together with a binary operation\n$(a,b) \\mapsto a * b:G \\times G \\rightarrow G$ satisfying the following conditions:\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003eG1:\u003c\/strong\u003e (associativity) for all $a,b,c \\in G$,\u003c\/p\u003e\n\u003cp\u003e$$(a * b) * c = a * (b * c)$$\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003eG2:\u003c\/strong\u003e (existence of a neutral element) there exists an element $e \\in G$ such that\u003c\/p\u003e\n\u003cp\u003e$$ a * e = a = e * a $$\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003eG3:\u003c\/strong\u003e (existence of inverses) for each $a \\in G$, there exists an $a\u0027 \\in G$ such that\n$$a * a\u0027 = e= a\u0027 * a$$\n.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Galois Field | Yongjian 的博客" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://Lonely-Troubadour.github.io/images/icon.JPG">
+
+
+<meta property="og:url" content="https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/" />
+
+
+
+
+<meta property="og:description" content="
+Currently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.
+Abstract Algebra Basic
+Group Theory
+
+Group Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,
+Definition and examples
+DEFINITION 1.1
+A group is a set $G$ together with a binary operation
+$(a,b) \mapsto a * b:G \times G \rightarrow G$ satisfying the following conditions:
+G1: (associativity) for all $a,b,c \in G$,
+$$(a * b) * c = a * (b * c)$$
+G2: (existence of a neutral element) there exists an element $e \in G$ such that
+$$ a * e = a = e * a $$
+G3: (existence of inverses) for each $a \in G$, there exists an $a&#39; \in G$ such that
+$$a * a&#39; = e= a&#39; * a$$
+." />
+
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="Yongjian 的博客" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-07-28T19:02:46&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2019-07-28T19:02:46&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/zh/" class="mr-6 text-primary-text text-xl font-bold">Yongjian 的博客</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/zh/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/zh/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/zh/docs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Galois Field</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-07-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://Lonely-Troubadour.github.io/zh/categories/cryptography/" class="hover:text-eureka">Cryptography</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <!-- 最近在学习密码学一些相关知识，碰到了瓶颈，包括BLS短签名同态认证算法和RS编码算法。主要原因是缺少相关的密码学、数学知识，这里新开一篇博客简要做一下学习的笔记。 -->
+<p>Currently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.</p>
+<h1 id="abstract-algebra-basic">Abstract Algebra Basic</h1>
+<h2 id="group-theory">Group Theory</h2>
+<!-- 群论是研究对称性的根本工具，也是密码学的基础。这里先给出群的一般定义。 -->
+<p>Group Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,</p>
+<h3 id="definition-and-examples">Definition and examples</h3>
+<h4 id="definition-11">DEFINITION 1.1</h4>
+<p>A <em>group</em> is a set $G$ together with a binary operation
+$(a,b) \mapsto a * b:G \times G \rightarrow G$ satisfying the following conditions:</p>
+<p><strong>G1:</strong> (associativity) for all $a,b,c \in G$,</p>
+<p>$$(a * b) * c = a * (b * c)$$</p>
+<p><strong>G2:</strong> (existence of a neutral element) there exists an element $e \in G$ such that</p>
+<p>$$ a * e = a = e * a $$</p>
+<p><strong>G3:</strong> (existence of inverses) for each $a \in G$, there exists an $a' \in G$ such that
+$$a * a' = e= a' * a$$
+.</p>
+<p>Usually, we abbreviate $(G, *)$ to $G$. Also, we usually write $ab$ for $a * b$ and 1 for $e$; alternatively, we write $a + b$ and $a * b$ and 0 for $e$. In the first case, the group is said to be <em><strong>multiplicative</strong></em>, and the second is said to be <em><strong>additive</strong></em>.</p>
+<h4 id="definition-12">DEFINITION 1.2</h4>
+<p>In the following, $a, b \dots$ are elements of a group $G$.</p>
+<p>(a) An element $e$ is a <em><strong>neutral element</strong></em> if satisfying <strong>G2</strong>. If $e'$ is a second such element, then $e' = e * e' = e$. In fact, $e$ is the unique element of $G$ such that $e * e = e$ (apply <strong>G3</strong>).</p>
+<p>(b) If $b * a = e$ and $a * c = e$, then
+$b = b * e = b * (a * b) = (b * a) * c = e * c = c$</p>
+<p>Hence the element $a'$ in (G3) is uniquely determined by $a$. We call it the <em><strong>inverse</strong></em> of $a$, and denote it $a^{-1}$ (or the <em><strong>negative</strong></em> of $a$, and denote it $-a$).</p>
+<p>(c) Note that (G1) shows that product of any ordered triple $a_{1}, a_{2}, a_{3}$ of elements of $G$ is unambiguously defined: whether we form $a_{1}a_{2}$ first and then $(a_{1}a_{2})a_{3}$, or $a_{2}a_{3}$ first and then $a_{1}(a_{2}a_{3})$, the result is the same. In fact, (G1) implies that the product of any ordered $n-$tuple $a_{1}, a_{2}, a_{3}, \dots, a_{n}$ of elements of $G$ is unambiguously defined. We prove this by induction on $n$. In one multiplication, we might end up with
+$(a_{1} \dots a_{i})(a_{i+1} \dots a_{n})$
+as final product, whereas in another we might end up with
+$(a_{1} \dots a_{j})(a_{j+1} \dots a_{n})$</p>
+<p>Note that the expression within each pair of parentheses is well defined because of the induction hypotheses. Thus if $i = j$, they are equal. If $i \neq j$, we may suppose $i &lt; j$. Then
+$(a_{1} \dots a_{i})(a_{i+1} \dots a_{n})=(a_{1} \dots a_{i})((a_{i+1} \dots a_{j})(a_{j+1} \dots a_{n}))$
+$(a_{1} \dots a_{j})(a_{j+1} \dots a_{n})=((a_{1} \dots a_{i})(a_{i+1} \dots a_{j}))(a_{j+1} \dots a_{n})$
+and the expression on the right are equal because of (G1).</p>
+<p>(d) The inverse of $a_{1}a_{2} \dots a_{n}$ is $a_{n}^{-1}a_{n-1}^{-1} \dots a_{1}^{-1}$</p>
+<p>(e) (G3) implies that the cancellation laws hold in groups,
+$$ab = ac \Longrightarrow b = c, \qquad ba = ca  \Longrightarrow b = c $$
+(multiply on left or right by $a^{-1}$). Conversely, if $G$ is <em>finite</em>, then the cancellation laws imply (G3): the map $x \mapsto a x: G \rightarrow G$ is injective, and hence (by conunting) bijective; in particular, $e$ is in the image, and so $a$ has a right inverse; similarly, it has a left inverse, and the argument in (b) above shows that the two inverses are equal.</p>
+<p>$\quad$ Two groups $(G, *)$ and $(G', *')$ are <em><strong>isomorphic</strong></em> if there exists a one-to-one correspondence $a \leftrightarrow a'$,$G \leftrightarrow G'$, such that $(a * b)' = a' *' b'$ for all $a, b \in G$.</p>
+<p>$\quad$ The <em><strong>order</strong></em> $|G|$ of a group $G$ is its cardinality. A finite group whose order is a power of a prime $p$ is called a $p$-<em><strong>group</strong></em>.</p>
+<p>$\quad$ For an element $a$ of a group $G$, define</p>
+<div>
+\[
+    a^{n} = \left \{
+        \begin{aligned}
+        &(aa \dots a), \quad {n > 0 \quad (n \text{ copies of } a)} \\
+        &e, \quad {n = 0} \\
+        &(a^{-1}a^{-1} \dots a^{-1}), \quad {n < 0 \quad (|n| \text{ copies of } a^{-1})} 
+    \end{aligned}\right.
+\]
+</div>
+<p>一个群是一个集合$G$带有一个“二元运算”，即一个映射$G \times G \to G$（称为乘法,$(a,b) \in G \times G$在此映射下的像记作$a \bullet b$或$ab$，称为$a$与$b$的积），满足条件：</p>
+<ol>
+<li>$(ab)c=a(bc)$对任意$a,b,c, \in G$成立（这称为“乘法结合律”）；</li>
+<li>存在（唯一的）$e=e_{G} \in G$使得$ae=ea=a$对任意$a \in G$成立（$e$称作单位元）；</li>
+<li>对任意$a \in G$，存在（唯一的）$b \in G$使得$ab=ba=e$（$b$称作$a$的逆元，记$b=a^{-1}$。</li>
+</ol>
+<p>群$G$称为交换群或阿贝尔群，如果除上述三个条件外还有</p>
+<ol start="4">
+<li>$ab-ba$对任意$a,b \in G$成立。</li>
+</ol>
+<h1 id="galois-field">Galois Field</h1>
+<p>The elements of Galois Field $GF(p^n)$ is defined as $GF$</p>
+        </div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://Lonely-Troubadour.github.io/zh/posts/2018-09-01-hhkb-experience/" class="block">HHKB Professional BT使用体验</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Lonely-Troubadour.github.io/">Yongjian Hu</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptography on Yongjian 的博客</title>
+    <link>https://Lonely-Troubadour.github.io/zh/categories/cryptography/</link>
+    <description>Recent content in Cryptography on Yongjian 的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Lonely-Troubadour.github.io/&#34;&gt;Yongjian Hu&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 28 Jul 2019 19:02:46 +0800</lastBuildDate><atom:link href="https://Lonely-Troubadour.github.io/zh/categories/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Galois Field</title>
+      <link>https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/</link>
+      <pubDate>Sun, 28 Jul 2019 19:02:46 +0800</pubDate>
+      
+      <guid>https://Lonely-Troubadour.github.io/zh/posts/2019-07-28-galois-field/</guid>
+      <description>&lt;!-- 最近在学习密码学一些相关知识，碰到了瓶颈，包括BLS短签名同态认证算法和RS编码算法。主要原因是缺少相关的密码学、数学知识，这里新开一篇博客简要做一下学习的笔记。 --&gt;
+&lt;p&gt;Currently I am learning some knowledge of cryptography. In this blog, I made some notes about it and I will keep updating these notes.&lt;/p&gt;
+&lt;h1 id=&#34;abstract-algebra-basic&#34;&gt;Abstract Algebra Basic&lt;/h1&gt;
+&lt;h2 id=&#34;group-theory&#34;&gt;Group Theory&lt;/h2&gt;
+&lt;!-- 群论是研究对称性的根本工具，也是密码学的基础。这里先给出群的一般定义。 --&gt;
+&lt;p&gt;Group Theory is the fundamental tool for studying symmetry and the foundation of cryptography. Here,&lt;/p&gt;
+&lt;h3 id=&#34;definition-and-examples&#34;&gt;Definition and examples&lt;/h3&gt;
+&lt;h4 id=&#34;definition-11&#34;&gt;DEFINITION 1.1&lt;/h4&gt;
+&lt;p&gt;A &lt;em&gt;group&lt;/em&gt; is a set $G$ together with a binary operation
+$(a,b) \mapsto a * b:G \times G \rightarrow G$ satisfying the following conditions:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;G1:&lt;/strong&gt; (associativity) for all $a,b,c \in G$,&lt;/p&gt;
+&lt;p&gt;$$(a * b) * c = a * (b * c)$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;G2:&lt;/strong&gt; (existence of a neutral element) there exists an element $e \in G$ such that&lt;/p&gt;
+&lt;p&gt;$$ a * e = a = e * a $$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;G3:&lt;/strong&gt; (existence of inverses) for each $a \in G$, there exists an $a&#39; \in G$ such that
+$$a * a&#39; = e= a&#39; * a$$
+.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
